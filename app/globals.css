@@ -21,7 +21,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --font-sans: var(--font-body);
 }
 
@@ -247,7 +246,7 @@ a {
   margin-top: 32px;
 }
 
-/* ---------- Hero scene ---------- */
+/* ---------- Hero artwork ---------- */
 
 .hero-world {
   position: relative;
@@ -256,6 +255,7 @@ a {
 
 .hero-sun {
   position: absolute;
+  z-index: 3;
   top: 28px;
   right: 60px;
   width: 116px;
@@ -267,6 +267,7 @@ a {
 
 .hero-cloud {
   position: absolute;
+  z-index: 4;
   border-radius: 999px;
   background: #fff;
   box-shadow: 0 14px 40px rgba(36, 49, 45, 0.06);
@@ -303,62 +304,18 @@ a {
 
 .hero-art {
   position: absolute;
-  inset: 90px 20px 10px 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 68px 10px 0 35px;
   border: 3px solid rgba(36, 49, 45, 0.08);
   border-radius: 46% 54% 47% 53% / 42% 38% 62% 58%;
-  background:
-    radial-gradient(
-      circle at 72% 22%,
-      rgba(248, 201, 71, 0.8) 0 11%,
-      transparent 11.5%
-    ),
-    linear-gradient(
-      180deg,
-      var(--boomza-blue-light) 0 60%,
-      #bad99f 60% 100%
-    );
-  box-shadow: 0 30px 80px rgba(36, 49, 45, 0.1);
+  box-shadow: 0 30px 80px rgba(36, 49, 45, 0.13);
   overflow: hidden;
+  transform: rotate(1.5deg);
 }
 
-.hero-art::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 45%;
-  border-radius: 50%;
-  background: #7daf64;
-  left: -10%;
-  bottom: -20%;
-}
-
-.hero-character-placeholder {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 230px;
-  height: 300px;
-  border: 3px dashed rgba(36, 49, 45, 0.2);
-  border-radius: 46% 54% 48% 52% / 38% 38% 62% 62%;
-  background: rgba(255, 255, 255, 0.62);
-  transform: rotate(2deg);
-}
-
-.hero-character-placeholder strong {
-  font-family: var(--font-display), sans-serif;
-  font-size: 38px;
-  letter-spacing: -0.05em;
-}
-
-.hero-character-placeholder small {
-  display: block;
-  margin-top: 4px;
-  color: var(--boomza-muted);
-  text-align: center;
+.hero-image {
+  object-fit: cover;
+  object-position: 48% 50%;
+  transform: scale(1.03);
 }
 
 /* ---------- Adventure ---------- */
@@ -378,40 +335,21 @@ a {
 
 .story-frame {
   position: relative;
-  min-height: 490px;
+  min-height: 520px;
   border-radius: 48px 52px 42px 58px;
-  background:
-    linear-gradient(
-      180deg,
-      #ccebf3 0 58%,
-      #9bc37d 58% 100%
-    );
   overflow: hidden;
+  background: #fff;
   box-shadow: 0 24px 70px rgba(36, 49, 45, 0.1);
 }
 
-.story-frame::before {
-  content: "";
-  position: absolute;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: var(--boomza-yellow);
-  right: 44px;
-  top: 42px;
+.story-image {
+  object-fit: cover;
+  object-position: center 34%;
+  transition: transform 400ms ease;
 }
 
-.story-placeholder {
-  position: absolute;
-  inset: auto 12% 12% 12%;
-  height: 58%;
-  display: grid;
-  place-items: center;
-  border: 3px dashed rgba(36, 49, 45, 0.22);
-  border-radius: 36px;
-  background: rgba(255, 255, 255, 0.5);
-  font-family: var(--font-display), sans-serif;
-  font-size: 26px;
+.story-frame:hover .story-image {
+  transform: scale(1.025);
 }
 
 .adventure-copy h2,
@@ -464,12 +402,14 @@ a {
 }
 
 .colouring-card {
-  min-height: 400px;
+  min-height: 430px;
   padding: 18px;
   border-radius: 34px 40px 30px 38px;
   background: #fff;
   box-shadow: 0 18px 50px rgba(36, 49, 45, 0.08);
-  transition: transform 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .colouring-card:nth-child(2) {
@@ -482,29 +422,27 @@ a {
 
 .colouring-card:hover {
   transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 24px 60px rgba(36, 49, 45, 0.12);
 }
 
-.colouring-page {
-  display: grid;
-  min-height: 310px;
-  place-items: center;
-  border: 2px dashed #b7b7ae;
+.colouring-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  border: 2px solid rgba(36, 49, 45, 0.08);
   border-radius: 24px;
-  background:
-    linear-gradient(
-      rgba(36, 49, 45, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(36, 49, 45, 0.03) 1px,
-      transparent 1px
-    ),
-    #fff;
-  background-size: 24px 24px;
-  color: #888b84;
-  font-family: var(--font-display), sans-serif;
-  text-align: center;
+  background: #fff;
+}
+
+.colouring-image {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 260ms ease;
+}
+
+.colouring-card:hover .colouring-image {
+  transform: scale(1.025);
 }
 
 .colouring-card strong {
@@ -512,6 +450,12 @@ a {
   padding: 18px 8px 4px;
   font-family: var(--font-display), sans-serif;
   font-size: 19px;
+}
+
+.colour-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 }
 
 /* ---------- Play ---------- */
@@ -549,7 +493,7 @@ a {
 
 .play-copy {
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 .play-copy .section-label {
@@ -592,6 +536,7 @@ a {
 
 .play-dot {
   position: absolute;
+  z-index: 4;
   display: grid;
   width: 82px;
   height: 82px;
@@ -623,6 +568,26 @@ a {
   background: #fff;
 }
 
+.play-boomza {
+  position: absolute;
+  z-index: 3;
+  right: 24%;
+  bottom: 15%;
+  width: 150px;
+  height: 190px;
+  overflow: hidden;
+  border: 5px solid rgba(255, 255, 255, 0.86);
+  border-radius: 42% 58% 48% 52% / 46% 45% 55% 54%;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+  transform: rotate(5deg);
+}
+
+.play-boomza-image {
+  object-fit: cover;
+  object-position: 42% 58%;
+  transform: scale(2.2);
+}
+
 /* ---------- Books ---------- */
 
 .books-section {
@@ -637,59 +602,32 @@ a {
   gap: 80px;
 }
 
-.book-cover {
+.real-book {
   position: relative;
   width: min(100%, 370px);
-  aspect-ratio: 0.72;
+  aspect-ratio: 0.77;
   margin-inline: auto;
-  display: grid;
-  place-items: center;
-  border-radius: 8px 24px 24px 8px;
-  background:
-    radial-gradient(
-      circle at 72% 22%,
-      var(--boomza-yellow) 0 12%,
-      transparent 12.5%
-    ),
-    linear-gradient(
-      160deg,
-      var(--boomza-blue-light),
-      #a9d394
-    );
+  border-radius: 12px 25px 25px 12px;
+  overflow: hidden;
+  background: #fff;
   box-shadow:
     -14px 16px 0 #e9d9bd,
     0 35px 70px rgba(36, 49, 45, 0.2);
   transform: rotate(-3deg);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
 }
 
-.book-cover::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: rgba(36, 49, 45, 0.12);
+.real-book:hover {
+  transform: rotate(-1.5deg) translateY(-7px);
+  box-shadow:
+    -14px 20px 0 #e9d9bd,
+    0 42px 80px rgba(36, 49, 45, 0.22);
 }
 
-.book-placeholder {
-  padding: 30px;
-  text-align: center;
-  font-family: var(--font-display), sans-serif;
-}
-
-.book-placeholder small {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.book-placeholder strong {
-  display: block;
-  font-size: 42px;
-  line-height: 0.95;
+.book-cover-image {
+  object-fit: cover;
 }
 
 .book-copy p {
@@ -699,8 +637,25 @@ a {
   line-height: 1.75;
 }
 
+.book-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.book-details span {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--boomza-line);
+  color: var(--boomza-green-dark);
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .book-copy .boomza-button {
-  margin-top: 22px;
+  margin-top: 28px;
 }
 
 /* ---------- Footer ---------- */
@@ -787,7 +742,11 @@ a {
   }
 
   .hero-world {
-    min-height: 500px;
+    min-height: 560px;
+  }
+
+  .hero-art {
+    inset: 70px 8% 0;
   }
 
   .adventure-grid {
@@ -809,6 +768,10 @@ a {
 
   .colouring-card:nth-child(2) {
     transform: none;
+  }
+
+  .real-book {
+    width: min(65vw, 370px);
   }
 }
 
@@ -835,16 +798,15 @@ a {
   }
 
   .hero-world {
-    min-height: 420px;
+    min-height: 470px;
   }
 
   .hero-art {
-    inset: 65px 0 0;
+    inset: 60px 0 0;
   }
 
-  .hero-character-placeholder {
-    width: 180px;
-    height: 245px;
+  .hero-sun {
+    right: 18px;
   }
 
   .adventure-section,
@@ -855,7 +817,7 @@ a {
   }
 
   .story-frame {
-    min-height: 380px;
+    min-height: 470px;
   }
 
   .colour-grid {
@@ -872,13 +834,27 @@ a {
     transform: none;
   }
 
+  .colouring-image-wrap {
+    height: 390px;
+  }
+
   .play-panel {
     padding: 38px 24px;
     border-radius: 40px;
   }
 
   .play-world {
-    min-height: 340px;
+    min-height: 360px;
+  }
+
+  .play-boomza {
+    right: 20%;
+    width: 125px;
+    height: 160px;
+  }
+
+  .real-book {
+    width: min(78vw, 340px);
   }
 
   .footer-main,
