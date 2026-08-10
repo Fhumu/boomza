@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -73,16 +74,14 @@ export default function Home() {
             <div className="hero-cloud hero-cloud-one" />
 
             <div className="hero-art">
-              <div className="hero-character-placeholder">
-                <div>
-                  <strong>BOOMZA</strong>
-                  <small>
-                    Your hero artwork
-                    <br />
-                    goes right here.
-                  </small>
-                </div>
-              </div>
+              <Image
+                src="/books/boomza-first-adventures-cover.JPG"
+                alt="Boomza waving in his colourful world"
+                fill
+                priority
+                sizes="(max-width: 900px) 90vw, 48vw"
+                className="hero-image"
+              />
             </div>
           </div>
         </div>
@@ -94,9 +93,13 @@ export default function Home() {
       >
         <div className="site-shell adventure-grid">
           <div className="story-frame">
-            <div className="story-placeholder">
-              Today&apos;s story artwork
-            </div>
+            <Image
+              src="/colouring/boomza-wake-up.JPG"
+              alt="Boomza waking up ready for a new adventure"
+              fill
+              sizes="(max-width: 900px) 100vw, 52vw"
+              className="story-image"
+            />
           </div>
 
           <div className="adventure-copy">
@@ -110,22 +113,21 @@ export default function Home() {
             </div>
 
             <h2>
-              Something strange happened in Boomza&apos;s
-              world…
+              Good morning, Boomza!
             </h2>
 
             <p>
-              The colours are disappearing. Join Boomza,
-              follow the clues and see whether you can help
-              bring his colourful world back to life.
+              The sun is up and another adventure is waiting.
+              Follow Boomza from breakfast to the garden and
+              discover all the little moments that make a big day.
             </p>
 
             <Link
-              href="#play"
+              href="#colour"
               className="boomza-button"
             >
-              Watch the story
-              <span aria-hidden="true">▶</span>
+              Follow the adventure
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
@@ -153,41 +155,63 @@ export default function Home() {
             </div>
 
             <p>
-              Download a page, choose your colours and make
-              every Boomza adventure your own.
+              Choose a page, add your favourite colours and
+              make every Boomza adventure your own.
             </p>
           </div>
 
           <div className="colour-grid">
             <article className="colouring-card">
-              <div className="colouring-page">
-                Boomza colouring
-                <br />
-                artwork
+              <div className="colouring-image-wrap">
+                <Image
+                  src="/colouring/boomza-wake-up.JPG"
+                  alt="Boomza waking up colouring page"
+                  fill
+                  sizes="(max-width: 640px) 90vw, 30vw"
+                  className="colouring-image"
+                />
               </div>
 
               <strong>Good morning, Boomza!</strong>
             </article>
 
             <article className="colouring-card">
-              <div className="colouring-page">
-                Boomza colouring
-                <br />
-                artwork
+              <div className="colouring-image-wrap">
+                <Image
+                  src="/colouring/boomza-breakfast.JPG"
+                  alt="Boomza eating breakfast colouring page"
+                  fill
+                  sizes="(max-width: 640px) 90vw, 30vw"
+                  className="colouring-image"
+                />
               </div>
 
               <strong>Breakfast time</strong>
             </article>
 
             <article className="colouring-card">
-              <div className="colouring-page">
-                Boomza colouring
-                <br />
-                artwork
+              <div className="colouring-image-wrap">
+                <Image
+                  src="/colouring/boomza-watering-garden.JPG"
+                  alt="Boomza watering flowers colouring page"
+                  fill
+                  sizes="(max-width: 640px) 90vw, 30vw"
+                  className="colouring-image"
+                />
               </div>
 
               <strong>Into the garden</strong>
             </article>
+          </div>
+
+          <div className="colour-cta">
+            <Link
+              href="#books"
+              className="boomza-button boomza-button-secondary"
+            >
+              Discover more adventures
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -214,7 +238,7 @@ export default function Home() {
               </p>
 
               <Link
-                href="#"
+                href="#books"
                 className="boomza-button"
               >
                 Play soon
@@ -222,10 +246,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div
-              className="play-world"
-              aria-hidden="true"
-            >
+            <div className="play-world">
               <div className="play-path" />
 
               <div className="play-dot play-dot-one">
@@ -239,6 +260,16 @@ export default function Home() {
               <div className="play-dot play-dot-three">
                 DISCOVER
               </div>
+
+              <div className="play-boomza">
+                <Image
+                  src="/books/boomza-first-adventures-cover.JPG"
+                  alt=""
+                  fill
+                  sizes="160px"
+                  className="play-boomza-image"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -249,15 +280,14 @@ export default function Home() {
         className="books-section"
       >
         <div className="site-shell book-grid">
-          <div className="book-cover">
-            <div className="book-placeholder">
-              <small>Boomza</small>
-              <strong>
-                First
-                <br />
-                Adventures
-              </strong>
-            </div>
+          <div className="real-book">
+            <Image
+              src="/books/boomza-first-adventures-cover.JPG"
+              alt="Boomza's First Adventures colouring book cover"
+              fill
+              sizes="(max-width: 900px) 70vw, 370px"
+              className="book-cover-image"
+            />
           </div>
 
           <div className="book-copy">
@@ -275,10 +305,17 @@ export default function Home() {
             </h2>
 
             <p>
-              Follow Boomza through everyday adventures and
-              bring every page to life with your own
-              imagination.
+              Boomza&apos;s First Adventures is a cheerful
+              colouring journey made for little hands and big
+              imaginations — with everyday moments, family,
+              friendship and plenty to colour.
             </p>
+
+            <div className="book-details">
+              <span>Ages 2–5</span>
+              <span>Colouring</span>
+              <span>Everyday adventures</span>
+            </div>
 
             <Link
               href="#"
@@ -299,8 +336,8 @@ export default function Home() {
               </div>
 
               <p>
-                Stories, colouring, play and little
-                adventures made for big imaginations.
+                Stories, colouring, play and little adventures
+                made for big imaginations.
               </p>
             </div>
 
