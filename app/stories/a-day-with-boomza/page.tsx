@@ -70,33 +70,6 @@ const storyScenes = [
 export default function StoryPage() {
   return (
     <main>
-      <header className="boomza-header">
-        <div className="site-shell boomza-nav">
-          <Link
-            href="/"
-            className="boomza-logo"
-          >
-            BOOM<span>ZA</span>
-          </Link>
-
-          <nav
-            className="nav-links"
-            aria-label="Main navigation"
-          >
-            <Link
-              href="/stories"
-              aria-current="page"
-            >
-              Stories
-            </Link>
-
-            <Link href="/colour">Colour</Link>
-            <Link href="/play">Play</Link>
-            <Link href="/books">Books</Link>
-          </nav>
-        </div>
-      </header>
-
       <section
         className="relative overflow-hidden pb-24 pt-20 text-center sm:pb-28 sm:pt-24"
         style={{
@@ -157,7 +130,9 @@ export default function StoryPage() {
           <div
             className={[
               "site-shell grid items-center gap-14 lg:grid-cols-2 lg:gap-20",
-              index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : "",
+              index % 2 === 1
+                ? "lg:[&>*:first-child]:order-2"
+                : "",
             ].join(" ")}
           >
             <div className="relative min-h-[560px] overflow-hidden rounded-[52px_44px_58px_46px] bg-white shadow-[0_26px_75px_rgba(36,49,45,0.12)] sm:min-h-[650px]">
@@ -228,7 +203,10 @@ export default function StoryPage() {
         }}
       >
         <div className="site-shell">
-          <div className="text-6xl" aria-hidden="true">
+          <div
+            className="text-6xl"
+            aria-hidden="true"
+          >
             ⭐
           </div>
 
@@ -246,8 +224,8 @@ export default function StoryPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/70">
-            There are always more stories waiting in Boomza&apos;s
-            world.
+            There are always more stories waiting in
+            Boomza&apos;s world.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -272,43 +250,6 @@ export default function StoryPage() {
           </div>
         </div>
       </section>
-
-      <footer className="boomza-footer">
-        <div className="site-shell">
-          <div className="footer-main">
-            <div className="footer-brand">
-              <div className="boomza-logo">
-                BOOM<span>ZA</span>
-              </div>
-
-              <p>
-                Stories, colouring, play and little adventures
-                made for big imaginations.
-              </p>
-            </div>
-
-            <nav
-              className="footer-links"
-              aria-label="Footer navigation"
-            >
-              <Link href="/stories">Stories</Link>
-              <Link href="/colour">Colour</Link>
-              <Link href="/play">Play</Link>
-              <Link href="/books">Books</Link>
-            </nav>
-          </div>
-
-          <div className="footer-bottom">
-            <span>
-              © {new Date().getFullYear()} Boomza.
-            </span>
-
-            <span>
-              Made with imagination in South Africa.
-            </span>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
