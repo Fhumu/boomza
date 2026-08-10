@@ -12,34 +12,6 @@ export const metadata: Metadata = {
 export default function PlayPage() {
   return (
     <main>
-      <header className="boomza-header">
-        <div className="site-shell boomza-nav">
-          <Link
-            href="/"
-            className="boomza-logo"
-          >
-            BOOM<span>ZA</span>
-          </Link>
-
-          <nav
-            className="nav-links"
-            aria-label="Main navigation"
-          >
-            <Link href="/#stories">Stories</Link>
-            <Link href="/colour">Colour</Link>
-
-            <Link
-              href="/play"
-              aria-current="page"
-            >
-              Play
-            </Link>
-
-            <Link href="/books">Books</Link>
-          </nav>
-        </div>
-      </header>
-
       <section
         className="relative overflow-hidden pb-20 pt-20 sm:pb-24 sm:pt-24"
         style={{
@@ -164,43 +136,6 @@ export default function PlayPage() {
           </div>
         </div>
       </section>
-
-      <footer className="boomza-footer">
-        <div className="site-shell">
-          <div className="footer-main">
-            <div className="footer-brand">
-              <div className="boomza-logo">
-                BOOM<span>ZA</span>
-              </div>
-
-              <p>
-                Stories, colouring, play and little adventures
-                made for big imaginations.
-              </p>
-            </div>
-
-            <nav
-              className="footer-links"
-              aria-label="Footer navigation"
-            >
-              <Link href="/#stories">Stories</Link>
-              <Link href="/colour">Colour</Link>
-              <Link href="/play">Play</Link>
-              <Link href="/books">Books</Link>
-            </nav>
-          </div>
-
-          <div className="footer-bottom">
-            <span>
-              © {new Date().getFullYear()} Boomza.
-            </span>
-
-            <span>
-              Made with imagination in South Africa.
-            </span>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
