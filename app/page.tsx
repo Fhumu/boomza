@@ -18,7 +18,7 @@ export default function Home() {
             aria-label="Main navigation"
           >
             <Link href="#stories">Stories</Link>
-            <Link href="#colour">Colour</Link>
+            <Link href="/colour">Colour</Link>
             <Link href="#play">Play</Link>
             <Link href="#books">Books</Link>
           </nav>
@@ -58,7 +58,7 @@ export default function Home() {
               </Link>
 
               <Link
-                href="#colour"
+                href="/colour"
                 className="boomza-button boomza-button-secondary"
               >
                 Colour with Boomza
@@ -123,7 +123,7 @@ export default function Home() {
             </p>
 
             <Link
-              href="#colour"
+              href="/colour"
               className="boomza-button"
             >
               Follow the adventure
@@ -206,10 +206,10 @@ export default function Home() {
 
           <div className="colour-cta">
             <Link
-              href="#books"
+              href="/colour"
               className="boomza-button boomza-button-secondary"
             >
-              Discover more adventures
+              See all colouring pages
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -346,7 +346,7 @@ export default function Home() {
               aria-label="Footer navigation"
             >
               <Link href="#stories">Stories</Link>
-              <Link href="#colour">Colour</Link>
+              <Link href="/colour">Colour</Link>
               <Link href="#play">Play</Link>
               <Link href="#books">Books</Link>
             </nav>
