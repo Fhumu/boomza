@@ -17,7 +17,7 @@ export default function Home() {
             className="nav-links"
             aria-label="Main navigation"
           >
-            <Link href="#stories">Stories</Link>
+            <Link href="/stories">Stories</Link>
             <Link href="/colour">Colour</Link>
             <Link href="/play">Play</Link>
             <Link href="/books">Books</Link>
@@ -50,7 +50,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <Link
-                href="#stories"
+                href="/stories"
                 className="boomza-button"
               >
                 Start an adventure
@@ -94,8 +94,8 @@ export default function Home() {
         <div className="site-shell adventure-grid">
           <div className="story-frame">
             <Image
-              src="/colouring/boomza-wake-up.JPG"
-              alt="Boomza waking up ready for a new adventure"
+              src="/colouring/boomza-family-breakfast.JPG"
+              alt="Boomza having breakfast with his family"
               fill
               sizes="(max-width: 900px) 100vw, 52vw"
               className="story-image"
@@ -113,20 +113,20 @@ export default function Home() {
             </div>
 
             <h2>
-              Good morning, Boomza!
+              A day with Boomza.
             </h2>
 
             <p>
-              The sun is up and another adventure is waiting.
-              Follow Boomza from breakfast to the garden and
-              discover all the little moments that make a big day.
+              Breakfast is only the beginning. Join Boomza and
+              his family for a day of growing, helping, building
+              and making little memories together.
             </p>
 
             <Link
-              href="/colour"
+              href="/stories/a-day-with-boomza"
               className="boomza-button"
             >
-              Follow the adventure
+              Read the story
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -164,43 +164,43 @@ export default function Home() {
             <article className="colouring-card">
               <div className="colouring-image-wrap">
                 <Image
-                  src="/colouring/boomza-wake-up.JPG"
-                  alt="Boomza waking up colouring page"
+                  src="/colouring/boomza-family-gardening.JPG"
+                  alt="Boomza gardening with his family colouring page"
                   fill
                   sizes="(max-width: 640px) 90vw, 30vw"
                   className="colouring-image"
                 />
               </div>
 
-              <strong>Good morning, Boomza!</strong>
+              <strong>Family gardening</strong>
             </article>
 
             <article className="colouring-card">
               <div className="colouring-image-wrap">
                 <Image
-                  src="/colouring/boomza-breakfast.JPG"
-                  alt="Boomza eating breakfast colouring page"
+                  src="/colouring/boomza-garden-wave.JPG"
+                  alt="Boomza waving from the garden colouring page"
                   fill
                   sizes="(max-width: 640px) 90vw, 30vw"
                   className="colouring-image"
                 />
               </div>
 
-              <strong>Breakfast time</strong>
+              <strong>Hello from the garden!</strong>
             </article>
 
             <article className="colouring-card">
               <div className="colouring-image-wrap">
                 <Image
-                  src="/colouring/boomza-watering-garden.JPG"
-                  alt="Boomza watering flowers colouring page"
+                  src="/colouring/boomza-building-birdhouse.JPG"
+                  alt="Boomza building a birdhouse colouring page"
                   fill
                   sizes="(max-width: 640px) 90vw, 30vw"
                   className="colouring-image"
                 />
               </div>
 
-              <strong>Into the garden</strong>
+              <strong>Building together</strong>
             </article>
           </div>
 
@@ -346,7 +346,7 @@ export default function Home() {
               className="footer-links"
               aria-label="Footer navigation"
             >
-              <Link href="#stories">Stories</Link>
+              <Link href="/stories">Stories</Link>
               <Link href="/colour">Colour</Link>
               <Link href="/play">Play</Link>
               <Link href="/books">Books</Link>
