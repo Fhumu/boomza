@@ -86,32 +86,6 @@ const colouringPages = [
 export default function ColourPage() {
   return (
     <main>
-      <header className="boomza-header">
-        <div className="site-shell boomza-nav">
-          <Link
-            href="/"
-            className="boomza-logo"
-          >
-            BOOM<span>ZA</span>
-          </Link>
-
-          <nav
-            className="nav-links"
-            aria-label="Main navigation"
-          >
-            <Link href="/#stories">Stories</Link>
-            <Link
-              href="/colour"
-              aria-current="page"
-            >
-              Colour
-            </Link>
-            <Link href="/#play">Play</Link>
-            <Link href="/#books">Books</Link>
-          </nav>
-        </div>
-      </header>
-
       <section className="relative overflow-hidden pb-24 pt-20 sm:pb-28 sm:pt-24">
         <div
           className="pointer-events-none absolute -right-24 top-4 h-80 w-80 rounded-full opacity-30"
@@ -293,7 +267,7 @@ export default function ColourPage() {
               </p>
 
               <Link
-                href="/#books"
+                href="/books"
                 className="boomza-button mt-7"
               >
                 Meet the book
@@ -303,43 +277,6 @@ export default function ColourPage() {
           </div>
         </div>
       </section>
-
-      <footer className="boomza-footer">
-        <div className="site-shell">
-          <div className="footer-main">
-            <div className="footer-brand">
-              <div className="boomza-logo">
-                BOOM<span>ZA</span>
-              </div>
-
-              <p>
-                Stories, colouring, play and little adventures
-                made for big imaginations.
-              </p>
-            </div>
-
-            <nav
-              className="footer-links"
-              aria-label="Footer navigation"
-            >
-              <Link href="/#stories">Stories</Link>
-              <Link href="/colour">Colour</Link>
-              <Link href="/#play">Play</Link>
-              <Link href="/#books">Books</Link>
-            </nav>
-          </div>
-
-          <div className="footer-bottom">
-            <span>
-              © {new Date().getFullYear()} Boomza.
-            </span>
-
-            <span>
-              Made with imagination in South Africa.
-            </span>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
