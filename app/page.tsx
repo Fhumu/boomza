@@ -19,7 +19,7 @@ export default function Home() {
           >
             <Link href="#stories">Stories</Link>
             <Link href="/colour">Colour</Link>
-            <Link href="#play">Play</Link>
+            <Link href="/play">Play</Link>
             <Link href="/books">Books</Link>
           </nav>
         </div>
@@ -238,10 +238,10 @@ export default function Home() {
               </p>
 
               <Link
-                href="#books"
+                href="/play"
                 className="boomza-button"
               >
-                Play soon
+                Start playing
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -348,7 +348,7 @@ export default function Home() {
             >
               <Link href="#stories">Stories</Link>
               <Link href="/colour">Colour</Link>
-              <Link href="#play">Play</Link>
+              <Link href="/play">Play</Link>
               <Link href="/books">Books</Link>
             </nav>
           </div>
