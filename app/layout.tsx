@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Fredoka,
   Nunito,
@@ -21,42 +21,89 @@ const nunito = Nunito({
   display: "swap",
 });
 
+const siteUrl = "https://boomza.co.za";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://boomza.co.za"),
+  metadataBase: new URL(siteUrl),
 
   title: {
-    default: "Boomza | Stories, Colouring, Play & Adventures",
+    default: "Boomza | Little Adventures. Big Imagination.",
     template: "%s | Boomza",
   },
 
   description:
-    "Step into Boomza's world of stories, colouring, play and little adventures made for big imaginations.",
+    "Step into Boomza's world of children's stories, colouring pages, playful activities and little adventures made for big imaginations.",
 
   applicationName: "Boomza",
 
   keywords: [
     "Boomza",
+    "Boomza stories",
     "children's stories",
+    "kids stories",
     "colouring pages",
+    "kids colouring pages",
     "kids activities",
+    "children's activities",
     "children's books",
+    "colouring books",
+    "preschool activities",
     "South Africa",
   ],
+
+  authors: [
+    {
+      name: "Boomza",
+    },
+  ],
+
+  creator: "Boomza",
+  publisher: "Boomza",
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    url: "https://boomza.co.za",
+    url: siteUrl,
     siteName: "Boomza",
-    title: "Boomza | Little adventures. Big imagination.",
+    title: "Boomza | Little Adventures. Big Imagination.",
     description:
-      "Stories, colouring, play and adventures from Boomza's world.",
+      "Stories, colouring, play and little adventures made for big imaginations.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Boomza | Little Adventures. Big Imagination.",
+    description:
+      "Stories, colouring, play and little adventures made for big imaginations.",
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+
+  category: "children",
+
+  other: {
+    "geo.region": "ZA",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#fff9ed",
 };
 
 export default function RootLayout({
