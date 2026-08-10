@@ -4,6 +4,9 @@ import {
   Nunito,
 } from "next/font/google";
 
+import BoomzaFooter from "@/components/site/boomza-footer";
+import BoomzaHeader from "@/components/site/boomza-header";
+
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -66,7 +69,13 @@ export default function RootLayout({
       lang="en-ZA"
       className={`${fredoka.variable} ${nunito.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <BoomzaHeader />
+
+        {children}
+
+        <BoomzaFooter />
+      </body>
     </html>
   );
 }
