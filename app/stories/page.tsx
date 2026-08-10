@@ -12,7 +12,7 @@ export default function StoriesPage() {
   return (
     <main>
       <section
-        className="relative overflow-hidden pb-24 pt-20 sm:pb-28 sm:pt-24"
+        className="relative overflow-hidden pb-16 pt-14 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24"
         style={{
           background: "var(--boomza-cream)",
         }}
@@ -44,12 +44,13 @@ export default function StoriesPage() {
             </div>
 
             <h1
-              className="mt-5 max-w-5xl font-[family-name:var(--font-display)] text-[clamp(56px,8vw,108px)] font-semibold leading-[0.9] tracking-[-0.065em]"
+              className="mt-5 max-w-5xl font-[family-name:var(--font-display)] text-[clamp(52px,14vw,108px)] font-semibold leading-[0.9] tracking-[-0.065em]"
               style={{
                 color: "var(--boomza-ink)",
               }}
             >
               Little stories.
+
               <span
                 className="block"
                 style={{
@@ -61,7 +62,7 @@ export default function StoriesPage() {
             </h1>
 
             <p
-              className="mt-7 max-w-2xl text-lg leading-8 sm:text-xl"
+              className="mt-6 max-w-2xl text-lg leading-8 sm:mt-7 sm:text-xl"
               style={{
                 color: "var(--boomza-muted)",
               }}
@@ -74,7 +75,7 @@ export default function StoriesPage() {
       </section>
 
       <section
-        className="py-24 sm:py-28"
+        className="py-16 sm:py-24 lg:py-28"
         style={{
           background: "var(--boomza-paper)",
         }}
@@ -89,8 +90,8 @@ export default function StoriesPage() {
             Today&apos;s story
           </div>
 
-          <div className="mt-8 grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="relative min-h-[560px] overflow-hidden rounded-[52px_44px_58px_46px] bg-white shadow-[0_28px_80px_rgba(36,49,45,0.12)]">
+          <div className="mt-7 grid items-center gap-9 sm:mt-8 sm:gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+            <div className="relative min-h-[430px] overflow-hidden rounded-[38px_34px_44px_36px] bg-white shadow-[0_24px_70px_rgba(36,49,45,0.10)] sm:min-h-[520px] sm:rounded-[52px_44px_58px_46px] lg:min-h-[560px]">
               <Image
                 src="/colouring/boomza-family-breakfast.JPG"
                 alt="Boomza having breakfast with his family"
@@ -112,7 +113,7 @@ export default function StoriesPage() {
               </p>
 
               <h2
-                className="mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(46px,6vw,76px)] font-semibold leading-[0.95] tracking-[-0.055em]"
+                className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(42px,11vw,76px)] font-semibold leading-[0.95] tracking-[-0.055em] sm:mt-4"
                 style={{
                   color: "var(--boomza-ink)",
                 }}
@@ -121,7 +122,7 @@ export default function StoriesPage() {
               </h2>
 
               <p
-                className="mt-6 max-w-xl text-lg leading-8"
+                className="mt-5 max-w-xl text-lg leading-8 sm:mt-6"
                 style={{
                   color: "var(--boomza-muted)",
                 }}
@@ -131,7 +132,7 @@ export default function StoriesPage() {
                 building and making little memories together.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
                 <span className="book-details">
                   <span>Family</span>
                   <span>Helping</span>
@@ -141,7 +142,7 @@ export default function StoriesPage() {
 
               <Link
                 href="/stories/a-day-with-boomza"
-                className="boomza-button mt-8"
+                className="boomza-button mt-7 sm:mt-8"
               >
                 Read the story
                 <span aria-hidden="true">→</span>
@@ -152,7 +153,7 @@ export default function StoriesPage() {
       </section>
 
       <section
-        className="py-24 text-center sm:py-28"
+        className="py-16 text-center sm:py-24 lg:py-28"
         style={{
           background: "#f7dfd2",
         }}
@@ -168,7 +169,7 @@ export default function StoriesPage() {
           </div>
 
           <h2
-            className="mx-auto mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(42px,5vw,68px)] font-semibold leading-none tracking-[-0.055em]"
+            className="mx-auto mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(38px,10vw,68px)] font-semibold leading-none tracking-[-0.055em]"
             style={{
               color: "var(--boomza-ink)",
             }}
