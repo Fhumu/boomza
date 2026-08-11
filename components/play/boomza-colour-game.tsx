@@ -41,20 +41,20 @@ const rounds: Round[] = [
       {
         id: "pocket",
         label: "Boomza's yellow pocket",
-        x: 45,
-        y: 68,
+        x: 43,
+        y: 70,
       },
       {
         id: "butterfly",
-        label: "Blue butterfly",
+        label: "Butterfly",
         x: 70,
-        y: 54,
+        y: 57,
       },
       {
         id: "flowers",
         label: "Colourful flowers",
-        x: 78,
-        y: 83,
+        x: 81,
+        y: 87,
       },
     ],
   },
@@ -74,20 +74,20 @@ const rounds: Round[] = [
       {
         id: "sky",
         label: "Blue sky",
-        x: 67,
-        y: 27,
+        x: 66,
+        y: 42,
       },
       {
         id: "rainbow",
         label: "Rainbow",
-        x: 88,
-        y: 47,
+        x: 89,
+        y: 57,
       },
       {
         id: "tree",
-        label: "Green tree",
-        x: 13,
-        y: 28,
+        label: "Tree",
+        x: 17,
+        y: 35,
       },
     ],
   },
@@ -107,20 +107,20 @@ const rounds: Round[] = [
       {
         id: "grass",
         label: "Green grass",
-        x: 61,
+        x: 63,
         y: 86,
       },
       {
         id: "flowers",
         label: "Colourful flowers",
-        x: 82,
+        x: 83,
         y: 84,
       },
       {
         id: "sign",
         label: "Wooden sign",
         x: 82,
-        y: 66,
+        y: 69,
       },
     ],
   },
@@ -406,429 +406,426 @@ export default function BoomzaColourGame() {
 
       <div className="overflow-hidden rounded-[32px_36px_38px_42px] bg-white shadow-[0_30px_90px_rgba(36,49,45,0.14)] sm:rounded-[46px_50px_54px_58px]">
         <div className="relative">
-          <div className="relative min-h-[760px] overflow-hidden sm:min-h-[820px] lg:min-h-[760px]">
-            <Image
-              src="/books/boomza-first-adventures-cover.JPG"
-              alt="Boomza exploring his colourful outdoor world"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
+          <div className="relative overflow-hidden">
+            <div className="relative min-h-[760px] overflow-hidden sm:min-h-[820px] lg:min-h-[760px]">
+              <Image
+                src="/books/boomza-first-adventures-cover.JPG"
+                alt="Boomza exploring his colourful outdoor world"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center"
+              />
 
-            <div className="absolute inset-0 bg-gradient-to-r from-[#fffaf0] via-[#fffaf0]/85 via-[32%] to-transparent lg:via-[#fffaf0]/52 lg:via-[36%]" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#fffaf0] via-[#fffaf0]/88 via-[31%] to-transparent lg:via-[#fffaf0]/54 lg:via-[36%]" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/[0.05] via-transparent to-white/[0.05]" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/[0.05] via-transparent to-white/[0.05]" />
 
-            <div className="relative z-10 flex min-h-[760px] flex-col sm:min-h-[820px] lg:min-h-[760px]">
-              <div className="grid flex-1 lg:grid-cols-[0.43fr_0.57fr]">
-                <div className="flex flex-col px-7 pb-6 pt-9 sm:px-10 sm:pb-8 sm:pt-12 lg:px-14 lg:pb-10 lg:pt-14 xl:px-16">
-                  <div className="max-w-[470px]">
-                    <p
-                      className="flex items-center gap-3 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[0.12em] sm:text-base"
-                      style={{
-                        color:
-                          "var(--boomza-green-dark)",
-                      }}
-                    >
-                      <span
-                        className="text-2xl"
-                        aria-hidden="true"
-                      >
-                        🌿
-                      </span>
-
-                      {round.eyebrow}
-                    </p>
-
-                    <h2
-                      className="mt-5 font-[family-name:var(--font-display)] text-[clamp(48px,10vw,76px)] font-semibold leading-[0.92] tracking-[-0.06em]"
-                      style={{
-                        color:
-                          "var(--boomza-ink)",
-                      }}
-                    >
-                      {
-                        round.questionLead
-                      }
-
-                      <span
-                        className="block"
+              <div className="relative z-10 min-h-[760px] sm:min-h-[820px] lg:min-h-[760px]">
+                <div className="grid min-h-[760px] sm:min-h-[820px] lg:min-h-[760px] lg:grid-cols-[0.43fr_0.57fr]">
+                  <div className="relative z-30 flex flex-col px-7 pb-6 pt-9 sm:px-10 sm:pb-8 sm:pt-12 lg:px-14 lg:pb-10 lg:pt-14 xl:px-16">
+                    <div className="max-w-[470px]">
+                      <p
+                        className="flex items-center gap-3 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[0.12em] sm:text-base"
                         style={{
                           color:
-                            "var(--boomza-orange)",
+                            "var(--boomza-green-dark)",
                         }}
                       >
-                        {
-                          round.questionColour
-                        }
-                      </span>
-                    </h2>
+                        <span
+                          className="text-2xl"
+                          aria-hidden="true"
+                        >
+                          🌿
+                        </span>
 
-                    <div
-                      className="mt-7 h-[2px] w-32 rounded-full"
-                      style={{
-                        background:
-                          "var(--boomza-green-dark)",
-                        opacity: 0.45,
-                      }}
-                    />
+                        {round.eyebrow}
+                      </p>
 
-                    <p
-                      className="mt-6 max-w-sm text-lg leading-8 sm:text-xl"
-                      style={{
-                        color:
-                          "var(--boomza-muted)",
-                      }}
-                    >
-                      {round.hint}
-                    </p>
-                  </div>
-
-                  <div className="mt-auto pt-8 sm:pt-12">
-                    <div className="relative inline-flex max-w-[290px] items-center rounded-[50px_52px_48px_58px] bg-[#fff8e8] px-7 py-6 shadow-[0_16px_42px_rgba(36,49,45,0.14)] sm:px-8">
-                      <div
-                        className="absolute -right-5 top-1/2 h-10 w-10 -translate-y-1/2 rotate-45 bg-[#fff8e8]"
-                        aria-hidden="true"
-                      />
-
-                      <p
-                        className="relative z-10 font-[family-name:var(--font-display)] text-lg font-semibold leading-7"
+                      <h2
+                        className="mt-5 font-[family-name:var(--font-display)] text-[clamp(48px,10vw,76px)] font-semibold leading-[0.92] tracking-[-0.06em]"
                         style={{
                           color:
                             "var(--boomza-ink)",
                         }}
                       >
-                        {round.instruction}
-                      </p>
+                        {
+                          round.questionLead
+                        }
+
+                        <span
+                          className="block"
+                          style={{
+                            color:
+                              "var(--boomza-orange)",
+                          }}
+                        >
+                          {
+                            round.questionColour
+                          }
+                        </span>
+                      </h2>
 
                       <div
-                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-xl"
-                        aria-hidden="true"
+                        className="mt-7 h-[2px] w-32 rounded-full"
+                        style={{
+                          background:
+                            "var(--boomza-green-dark)",
+                          opacity: 0.45,
+                        }}
+                      />
+
+                      <p
+                        className="mt-6 max-w-sm text-lg leading-8 sm:text-xl"
                         style={{
                           color:
-                            "var(--boomza-orange)",
+                            "var(--boomza-muted)",
                         }}
                       >
-                        ♥
+                        {round.hint}
+                      </p>
+                    </div>
+
+                    <div className="mt-auto pt-8 sm:pt-12">
+                      <div className="relative inline-flex max-w-[290px] items-center rounded-[50px_52px_48px_58px] bg-[#fff8e8] px-7 py-6 shadow-[0_16px_42px_rgba(36,49,45,0.14)] sm:px-8">
+                        <div
+                          className="absolute -right-5 top-1/2 h-10 w-10 -translate-y-1/2 rotate-45 bg-[#fff8e8]"
+                          aria-hidden="true"
+                        />
+
+                        <p
+                          className="relative z-10 font-[family-name:var(--font-display)] text-lg font-semibold leading-7"
+                          style={{
+                            color:
+                              "var(--boomza-ink)",
+                          }}
+                        >
+                          {round.instruction}
+                        </p>
+
+                        <div
+                          className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-xl"
+                          aria-hidden="true"
+                          style={{
+                            color:
+                              "var(--boomza-orange)",
+                          }}
+                        >
+                          ♥
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="relative min-h-[430px] sm:min-h-[520px] lg:min-h-0">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      speakRound(
-                        round,
-                      )
-                    }
-                    className="absolute right-5 top-5 z-30 flex items-center gap-3 rounded-full border border-black/[0.06] bg-[#fff9e9]/95 px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold shadow-[0_10px_30px_rgba(36,49,45,0.14)] backdrop-blur-sm transition-transform hover:scale-105 sm:right-8 sm:top-8 sm:px-6 sm:text-base"
-                    style={{
-                      color:
-                        "var(--boomza-green-dark)",
-                    }}
-                    aria-label="Read the clue aloud"
-                  >
-                    <span
-                      className="text-xl"
-                      aria-hidden="true"
+                  <div className="relative z-10 min-h-[430px] sm:min-h-[520px] lg:min-h-0">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        speakRound(
+                          round,
+                        )
+                      }
+                      className="absolute right-5 top-5 z-40 flex items-center gap-3 rounded-full border border-black/[0.06] bg-[#fff9e9]/95 px-5 py-3 font-[family-name:var(--font-display)] text-sm font-bold shadow-[0_10px_30px_rgba(36,49,45,0.14)] backdrop-blur-sm transition-transform hover:scale-105 sm:right-8 sm:top-8 sm:px-6 sm:text-base"
+                      style={{
+                        color:
+                          "var(--boomza-green-dark)",
+                      }}
+                      aria-label="Read the clue aloud"
                     >
-                      🔊
-                    </span>
+                      <span
+                        className="text-xl"
+                        aria-hidden="true"
+                      >
+                        🔊
+                      </span>
 
-                    Sound
-                  </button>
+                      Sound
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-                  {round.hotspots.map(
-                    (
-                      hotspot,
-                      hotspotIndex,
-                    ) => {
-                      const selected =
-                        selectedHotspot ===
-                        hotspot.id;
+              <div className="pointer-events-none absolute inset-0 z-20">
+                {round.hotspots.map(
+                  (
+                    hotspot,
+                    hotspotIndex,
+                  ) => {
+                    const selected =
+                      selectedHotspot ===
+                      hotspot.id;
 
-                      const correct =
-                        selected &&
-                        hotspot.id ===
-                          round.correct;
+                    const correct =
+                      selected &&
+                      hotspot.id ===
+                        round.correct;
 
-                      const incorrect =
-                        selected &&
-                        hotspot.id !==
-                          round.correct;
+                    const incorrect =
+                      selected &&
+                      hotspot.id !==
+                        round.correct;
 
-                      return (
-                        <button
-                          key={
-                            hotspot.id
-                          }
-                          type="button"
-                          onClick={() =>
-                            checkHotspot(
-                              hotspot.id,
-                            )
-                          }
-                          disabled={
-                            status ===
-                            "correct"
-                          }
-                          aria-label={`Choose ${hotspot.label}`}
-                          className="group absolute z-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-white disabled:cursor-default"
+                    return (
+                      <button
+                        key={
+                          hotspot.id
+                        }
+                        type="button"
+                        onClick={() =>
+                          checkHotspot(
+                            hotspot.id,
+                          )
+                        }
+                        disabled={
+                          status ===
+                          "correct"
+                        }
+                        aria-label={`Choose ${hotspot.label}`}
+                        className="pointer-events-auto absolute z-30 flex h-[118px] w-[118px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-white disabled:cursor-default sm:h-[128px] sm:w-[128px] lg:h-[136px] lg:w-[136px]"
+                        style={{
+                          left: `${hotspot.x}%`,
+                          top: `${hotspot.y}%`,
+                        }}
+                      >
+                        <span
+                          className={[
+                            "relative flex h-[72px] w-[72px] items-center justify-center rounded-full border-[4px] border-dashed transition-all duration-200",
+                            "sm:h-[82px] sm:w-[82px]",
+                            "lg:h-[92px] lg:w-[92px]",
+                            correct
+                              ? "scale-110"
+                              : "",
+                            incorrect
+                              ? "scale-95"
+                              : "",
+                            !selected
+                              ? "hover:scale-110"
+                              : "",
+                          ].join(
+                            " ",
+                          )}
                           style={{
-                            left: `${hotspot.x}%`,
-                            top: `${hotspot.y}%`,
+                            borderColor:
+                              "#ffffff",
+
+                            background:
+                              correct
+                                ? "rgba(65,108,66,0.94)"
+                                : incorrect
+                                  ? "rgba(242,139,60,0.94)"
+                                  : "rgba(255,250,232,0.22)",
+
+                            boxShadow:
+                              correct
+                                ? "0 0 0 8px rgba(65,108,66,0.18), 0 12px 35px rgba(36,49,45,0.28)"
+                                : incorrect
+                                  ? "0 0 0 8px rgba(242,139,60,0.18), 0 12px 35px rgba(36,49,45,0.28)"
+                                  : "0 0 0 7px rgba(255,255,255,0.30), 0 10px 34px rgba(36,49,45,0.20)",
                           }}
                         >
                           <span
                             className={[
-                              "relative flex h-[72px] w-[72px] items-center justify-center rounded-full border-[4px] border-dashed transition-all duration-200",
-                              "sm:h-[82px] sm:w-[82px]",
-                              "lg:h-[92px] lg:w-[92px]",
+                              "flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-white font-[family-name:var(--font-display)] text-xs font-extrabold shadow-[0_4px_12px_rgba(36,49,45,0.18)] transition-all",
                               correct
                                 ? "scale-110"
-                                : "",
-                              incorrect
-                                ? "scale-95"
-                                : "",
-                              !selected
-                                ? "group-hover:scale-110"
                                 : "",
                             ].join(
                               " ",
                             )}
                             style={{
-                              borderColor:
+                              color:
                                 correct
-                                  ? "#ffffff"
+                                  ? "var(--boomza-green-dark)"
                                   : incorrect
-                                    ? "#ffffff"
-                                    : "rgba(255,255,255,0.98)",
+                                    ? "var(--boomza-orange)"
+                                    : "var(--boomza-green-dark)",
+                            }}
+                          >
+                            {correct
+                              ? "✓"
+                              : incorrect
+                                ? "×"
+                                : hotspotIndex +
+                                  1}
+                          </span>
+                        </span>
 
+                        {selected && (
+                          <span
+                            className="absolute left-1/2 top-[calc(50%+58px)] min-w-max -translate-x-1/2 rounded-full px-3 py-2 font-[family-name:var(--font-display)] text-xs font-bold text-white shadow-[0_8px_22px_rgba(36,49,45,0.22)]"
+                            style={{
                               background:
                                 correct
-                                  ? "rgba(65,108,66,0.92)"
-                                  : incorrect
-                                    ? "rgba(242,139,60,0.94)"
-                                    : "rgba(255,250,232,0.20)",
-
-                              boxShadow:
-                                correct
-                                  ? "0 0 0 8px rgba(65,108,66,0.18), 0 12px 35px rgba(36,49,45,0.28)"
-                                  : incorrect
-                                    ? "0 0 0 8px rgba(242,139,60,0.18), 0 12px 35px rgba(36,49,45,0.28)"
-                                    : "0 0 0 7px rgba(255,255,255,0.25), 0 10px 34px rgba(36,49,45,0.20)",
+                                  ? "var(--boomza-green-dark)"
+                                  : "var(--boomza-orange)",
                             }}
                           >
-                            <span
-                              className={[
-                                "flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-white font-[family-name:var(--font-display)] text-xs font-extrabold shadow-[0_4px_12px_rgba(36,49,45,0.18)] transition-all",
-                                correct
-                                  ? "scale-110"
-                                  : "",
-                              ].join(
-                                " ",
-                              )}
-                              style={{
-                                color:
-                                  correct
-                                    ? "var(--boomza-green-dark)"
-                                    : incorrect
-                                      ? "var(--boomza-orange)"
-                                      : "var(--boomza-green-dark)",
-                              }}
-                            >
-                              {correct
-                                ? "✓"
-                                : incorrect
-                                  ? "×"
-                                  : hotspotIndex +
-                                    1}
-                            </span>
+                            {correct
+                              ? "YES!"
+                              : "TRY AGAIN"}
                           </span>
-
-                          {selected && (
-                            <span
-                              className="absolute left-1/2 top-[calc(100%+9px)] min-w-max -translate-x-1/2 rounded-full px-3 py-2 font-[family-name:var(--font-display)] text-xs font-bold text-white shadow-[0_8px_22px_rgba(36,49,45,0.22)]"
-                              style={{
-                                background:
-                                  correct
-                                    ? "var(--boomza-green-dark)"
-                                    : "var(--boomza-orange)",
-                              }}
-                            >
-                              {correct
-                                ? "YES!"
-                                : "TRY AGAIN"}
-                            </span>
-                          )}
-                        </button>
-                      );
-                    },
-                  )}
-                </div>
+                        )}
+                      </button>
+                    );
+                  },
+                )}
               </div>
+            </div>
 
-              <div className="relative z-20 mt-auto bg-[#fffaf0]/98 px-5 pb-5 pt-4 backdrop-blur-sm sm:px-8 sm:pb-7 sm:pt-5 lg:px-10">
-                <div
-                  className="flex min-h-[96px] flex-col gap-4 rounded-[30px_34px_28px_32px] border border-dashed px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-                  aria-live="polite"
-                  style={{
-                    borderColor:
-                      status ===
-                      "correct"
-                        ? "rgba(65,108,66,0.24)"
-                        : status ===
-                            "incorrect"
-                          ? "rgba(242,139,60,0.30)"
-                          : "rgba(242,139,60,0.38)",
+            <div className="relative z-40 bg-[#fffaf0]/98 px-5 pb-5 pt-4 backdrop-blur-sm sm:px-8 sm:pb-7 sm:pt-5 lg:px-10">
+              <div
+                className="flex min-h-[96px] flex-col gap-4 rounded-[30px_34px_28px_32px] border border-dashed px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+                aria-live="polite"
+                style={{
+                  borderColor:
+                    status ===
+                    "correct"
+                      ? "rgba(65,108,66,0.24)"
+                      : status ===
+                          "incorrect"
+                        ? "rgba(242,139,60,0.30)"
+                        : "rgba(242,139,60,0.38)",
 
-                    background:
-                      status ===
-                      "correct"
-                        ? "rgba(120,173,91,0.13)"
-                        : status ===
-                            "incorrect"
-                          ? "rgba(242,139,60,0.12)"
-                          : "rgba(255,249,232,0.92)",
-                  }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[rgba(242,139,60,0.28)] bg-[rgba(248,201,71,0.24)] text-3xl"
-                      aria-hidden="true"
-                    >
-                      {status ===
-                      "correct"
-                        ? "⭐"
-                        : status ===
-                            "incorrect"
-                          ? "💡"
-                          : "💡"}
-                    </div>
-
-                    <div>
-                      {status ===
-                        "idle" && (
-                        <>
-                          <strong
-                            className="font-[family-name:var(--font-display)] text-xl"
-                            style={{
-                              color:
-                                "var(--boomza-orange)",
-                            }}
-                          >
-                            Look carefully!
-                          </strong>
-
-                          <p
-                            className="mt-1 text-base"
-                            style={{
-                              color:
-                                "var(--boomza-muted)",
-                            }}
-                          >
-                            Which colourful
-                            object is hiding
-                            in Boomza&apos;s
-                            world?
-                          </p>
-                        </>
-                      )}
-
-                      {status ===
-                        "incorrect" && (
-                        <>
-                          <strong
-                            className="font-[family-name:var(--font-display)] text-xl"
-                            style={{
-                              color:
-                                "var(--boomza-orange)",
-                            }}
-                          >
-                            Good try!
-                          </strong>
-
-                          <p
-                            className="mt-1 text-base"
-                            style={{
-                              color:
-                                "var(--boomza-muted)",
-                            }}
-                          >
-                            That&apos;s not
-                            the one. Try
-                            another circle.
-                          </p>
-                        </>
-                      )}
-
-                      {status ===
-                        "correct" && (
-                        <>
-                          <strong
-                            className="font-[family-name:var(--font-display)] text-xl"
-                            style={{
-                              color:
-                                "var(--boomza-green-dark)",
-                            }}
-                          >
-                            You found it!
-                          </strong>
-
-                          <p
-                            className="mt-1 text-base"
-                            style={{
-                              color:
-                                "var(--boomza-muted)",
-                            }}
-                          >
-                            {
-                              round.success
-                            }
-                          </p>
-                        </>
-                      )}
-                    </div>
+                  background:
+                    status ===
+                    "correct"
+                      ? "rgba(120,173,91,0.13)"
+                      : status ===
+                          "incorrect"
+                        ? "rgba(242,139,60,0.12)"
+                        : "rgba(255,249,232,0.92)",
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[rgba(242,139,60,0.28)] bg-[rgba(248,201,71,0.24)] text-3xl"
+                    aria-hidden="true"
+                  >
+                    {status ===
+                    "correct"
+                      ? "⭐"
+                      : "💡"}
                   </div>
 
-                  {status ===
-                  "correct" ? (
-                    <button
-                      type="button"
-                      onClick={
-                        nextRound
-                      }
-                      className="boomza-button cursor-pointer whitespace-nowrap"
-                    >
-                      {roundIndex ===
-                      rounds.length -
-                        1
-                        ? "Finish"
-                        : "Next clue"}
+                  <div>
+                    {status ===
+                      "idle" && (
+                      <>
+                        <strong
+                          className="font-[family-name:var(--font-display)] text-xl"
+                          style={{
+                            color:
+                              "var(--boomza-orange)",
+                          }}
+                        >
+                          Look carefully!
+                        </strong>
 
-                      <span
-                        aria-hidden="true"
-                      >
-                        →
-                      </span>
-                    </button>
-                  ) : (
-                    <div
-                      className="hidden min-w-[260px] items-center justify-center gap-3 rounded-full bg-black/[0.055] px-6 py-4 font-[family-name:var(--font-display)] font-semibold text-black/40 sm:flex"
+                        <p
+                          className="mt-1 text-base"
+                          style={{
+                            color:
+                              "var(--boomza-muted)",
+                          }}
+                        >
+                          Which colourful
+                          object is hiding
+                          in Boomza&apos;s
+                          world?
+                        </p>
+                      </>
+                    )}
+
+                    {status ===
+                      "incorrect" && (
+                      <>
+                        <strong
+                          className="font-[family-name:var(--font-display)] text-xl"
+                          style={{
+                            color:
+                              "var(--boomza-orange)",
+                          }}
+                        >
+                          Good try!
+                        </strong>
+
+                        <p
+                          className="mt-1 text-base"
+                          style={{
+                            color:
+                              "var(--boomza-muted)",
+                          }}
+                        >
+                          That&apos;s not
+                          the one. Try
+                          another circle.
+                        </p>
+                      </>
+                    )}
+
+                    {status ===
+                      "correct" && (
+                      <>
+                        <strong
+                          className="font-[family-name:var(--font-display)] text-xl"
+                          style={{
+                            color:
+                              "var(--boomza-green-dark)",
+                          }}
+                        >
+                          You found it!
+                        </strong>
+
+                        <p
+                          className="mt-1 text-base"
+                          style={{
+                            color:
+                              "var(--boomza-muted)",
+                          }}
+                        >
+                          {
+                            round.success
+                          }
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {status ===
+                "correct" ? (
+                  <button
+                    type="button"
+                    onClick={
+                      nextRound
+                    }
+                    className="boomza-button cursor-pointer whitespace-nowrap"
+                  >
+                    {roundIndex ===
+                    rounds.length -
+                      1
+                      ? "Finish"
+                      : "Next clue"}
+
+                    <span
                       aria-hidden="true"
                     >
-                      <span className="text-xl">
-                        ★
-                      </span>
+                      →
+                    </span>
+                  </button>
+                ) : (
+                  <div
+                    className="hidden min-w-[260px] items-center justify-center gap-3 rounded-full bg-black/[0.055] px-6 py-4 font-[family-name:var(--font-display)] font-semibold text-black/40 sm:flex"
+                    aria-hidden="true"
+                  >
+                    <span className="text-xl">
+                      ★
+                    </span>
 
-                      Find the colour
-                      to continue
-                    </div>
-                  )}
-                </div>
+                    Find the colour
+                    to continue
+                  </div>
+                )}
               </div>
             </div>
           </div>
