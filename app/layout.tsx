@@ -104,6 +104,14 @@ export const metadata: Metadata = {
     title: "Boomza | Little Adventures. Big Imagination.",
     description:
       "Stories, colouring, play and little adventures made for big imaginations.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Boomza — Little adventures. Big imagination.",
+      },
+    ],
   },
 
   twitter: {
@@ -111,6 +119,14 @@ export const metadata: Metadata = {
     title: "Boomza | Little Adventures. Big Imagination.",
     description:
       "Stories, colouring, play and little adventures made for big imaginations.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Boomza — Little adventures. Big imagination.",
+      },
+    ],
   },
 
   robots: {
