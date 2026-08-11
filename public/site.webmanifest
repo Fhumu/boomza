@@ -1,0 +1,21 @@
+{
+  "name": "Boomza",
+  "short_name": "Boomza",
+  "description": "Stories, colouring, play and little adventures made for big imaginations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF7E8",
+  "theme_color": "#FFF7E8",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
