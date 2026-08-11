@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "A Day with Boomza",
   description:
     "Follow Boomza and his family through breakfast, gardening, helping, building and a cosy end to the day.",
+
+  alternates: {
+    canonical: "/stories/a-day-with-boomza",
+  },
 };
 
 const storyScenes = [
@@ -96,6 +100,7 @@ export default function StoryPage() {
 
           <h1 className="mx-auto mt-5 max-w-5xl font-[family-name:var(--font-display)] text-[clamp(62px,9vw,116px)] font-semibold leading-[0.88] tracking-[-0.065em]">
             A Day
+
             <span
               className="block"
               style={{
