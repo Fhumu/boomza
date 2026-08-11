@@ -6,78 +6,94 @@ export const metadata: Metadata = {
   title: "Colour with Boomza",
   description:
     "Explore Boomza colouring pages filled with everyday adventures, family moments, play and outdoor fun.",
+
+  alternates: {
+    canonical: "/colour",
+  },
 };
 
 const colouringPages = [
   {
     title: "Good morning, Boomza!",
-    description: "Wake up and get ready for a brand-new adventure.",
+    description:
+      "Wake up and get ready for a brand-new adventure.",
     image: "/colouring/boomza-wake-up.JPG",
     category: "My Day",
   },
   {
     title: "Breakfast time",
-    description: "Start Boomza's morning with a colourful breakfast.",
+    description:
+      "Start Boomza's morning with a colourful breakfast.",
     image: "/colouring/boomza-breakfast.JPG",
     category: "My Day",
   },
   {
     title: "Brush those teeth",
-    description: "Help Boomza get ready for the day.",
+    description:
+      "Help Boomza get ready for the day.",
     image: "/colouring/boomza-brushing-teeth.JPG",
     category: "My Day",
   },
   {
     title: "Family breakfast",
-    description: "A happy morning around the table together.",
+    description:
+      "A happy morning around the table together.",
     image: "/colouring/boomza-family-breakfast.JPG",
     category: "Family",
   },
   {
     title: "Building together",
-    description: "Boomza and a friend build something brilliant.",
+    description:
+      "Boomza and a friend build something brilliant.",
     image: "/colouring/boomza-building-blocks.JPG",
     category: "Play",
   },
   {
     title: "Into the garden",
-    description: "Help Boomza make the flowers grow.",
+    description:
+      "Help Boomza make the flowers grow.",
     image: "/colouring/boomza-watering-garden.JPG",
     category: "Outdoors",
   },
   {
     title: "Family gardening",
-    description: "Little hands can grow wonderful things.",
+    description:
+      "Little hands can grow wonderful things.",
     image: "/colouring/boomza-family-gardening.JPG",
     category: "Family",
   },
   {
     title: "Hello from the garden!",
-    description: "Boomza is ready for another sunny adventure.",
+    description:
+      "Boomza is ready for another sunny adventure.",
     image: "/colouring/boomza-garden-wave.JPG",
     category: "Outdoors",
   },
   {
     title: "Clean and happy",
-    description: "Boomza learns that helping can be an adventure too.",
+    description:
+      "Boomza learns that helping can be an adventure too.",
     image: "/colouring/boomza-clean-up.JPG",
     category: "Helping",
   },
   {
     title: "Building a birdhouse",
-    description: "Boomza makes a special home for a little friend.",
+    description:
+      "Boomza makes a special home for a little friend.",
     image: "/colouring/boomza-building-birdhouse.JPG",
     category: "Making",
   },
   {
     title: "A big Boomza hug",
-    description: "Some of the best moments are the simplest ones.",
+    description:
+      "Some of the best moments are the simplest ones.",
     image: "/colouring/boomza-mum-hug.JPG",
     category: "Family",
   },
   {
     title: "Sweet dreams, Boomza",
-    description: "End the day with dreams of tomorrow's adventure.",
+    description:
+      "End the day with dreams of tomorrow's adventure.",
     image: "/colouring/boomza-bedtime.JPG",
     category: "My Day",
   },
@@ -222,8 +238,10 @@ export default function ColourPage() {
                   <span
                     className="inline-flex rounded-full px-3 py-1 text-xs font-extrabold"
                     style={{
-                      background: "var(--boomza-blue-light)",
-                      color: "var(--boomza-green-dark)",
+                      background:
+                        "var(--boomza-blue-light)",
+                      color:
+                        "var(--boomza-green-dark)",
                     }}
                   >
                     {page.category}
@@ -268,8 +286,9 @@ export default function ColourPage() {
                   color: "var(--boomza-muted)",
                 }}
               >
-                Boomza&apos;s world is growing, with more places to
-                colour, stories to discover and games to play.
+                Boomza&apos;s world is growing, with more
+                places to colour, stories to discover and
+                games to play.
               </p>
 
               <Link
