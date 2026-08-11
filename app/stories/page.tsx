@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Boomza Stories",
   description:
     "Step into Boomza's world through little stories about family, helping, playing and everyday adventures.",
+
+  alternates: {
+    canonical: "/stories",
+  },
 };
 
 export default function StoriesPage() {
