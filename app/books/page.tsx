@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Boomza Books",
   description:
     "Discover Boomza's First Adventures — a cheerful colouring book filled with everyday moments, family, friendship and imagination.",
+
+  alternates: {
+    canonical: "/books",
+  },
 };
 
 const previewPages = [
@@ -83,6 +87,7 @@ export default function BooksPage() {
               }}
             >
               Boomza&apos;s First
+
               <span
                 className="block"
                 style={{
@@ -162,9 +167,10 @@ export default function BooksPage() {
                 color: "var(--boomza-muted)",
               }}
             >
-              Boomza&apos;s world begins with things children already
-              know — waking up, eating breakfast, helping at home,
-              spending time with family and discovering the outdoors.
+              Boomza&apos;s world begins with things children
+              already know — waking up, eating breakfast,
+              helping at home, spending time with family and
+              discovering the outdoors.
             </p>
 
             <p
@@ -173,8 +179,8 @@ export default function BooksPage() {
                 color: "var(--boomza-muted)",
               }}
             >
-              Every page gives children space to imagine what the
-              world should look like in their own colours.
+              Every page gives children space to imagine what
+              the world should look like in their own colours.
             </p>
           </div>
 
@@ -225,8 +231,8 @@ export default function BooksPage() {
                 color: "var(--boomza-muted)",
               }}
             >
-              From morning routines to outdoor adventures, every
-              page becomes part of Boomza&apos;s world.
+              From morning routines to outdoor adventures,
+              every page becomes part of Boomza&apos;s world.
             </p>
           </div>
 
@@ -312,9 +318,9 @@ export default function BooksPage() {
                 color: "var(--boomza-muted)",
               }}
             >
-              Boomza is designed around familiar moments that give
-              children something to recognise, talk about and make
-              their own.
+              Boomza is designed around familiar moments that
+              give children something to recognise, talk about
+              and make their own.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -431,9 +437,9 @@ export default function BooksPage() {
                 color: "var(--boomza-muted)",
               }}
             >
-              Boomza&apos;s First Adventures will be available soon.
-              When the book is ready to order, you&apos;ll be able to
-              find it right here.
+              Boomza&apos;s First Adventures will be available
+              soon. When the book is ready to order, you&apos;ll
+              be able to find it right here.
             </p>
 
             <div className="mt-8">
