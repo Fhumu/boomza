@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: "Play with Boomza",
   description:
     "Play a simple colour adventure with Boomza and help bring his colourful world to life.",
+
+  alternates: {
+    canonical: "/play",
+  },
 };
 
 export default function PlayPage() {
@@ -50,6 +54,7 @@ export default function PlayPage() {
             }}
           >
             Help Boomza find
+
             <span
               className="block"
               style={{
@@ -66,8 +71,8 @@ export default function PlayPage() {
               color: "var(--boomza-muted)",
             }}
           >
-            Follow the clues, choose the right colours and help
-            brighten Boomza&apos;s world.
+            Follow the clues, choose the right colours and
+            help brighten Boomza&apos;s world.
           </p>
         </div>
       </section>
@@ -114,8 +119,8 @@ export default function PlayPage() {
               color: "var(--boomza-muted)",
             }}
           >
-            Colour Boomza&apos;s world or take the adventure home
-            with Boomza&apos;s First Adventures.
+            Colour Boomza&apos;s world or take the adventure
+            home with Boomza&apos;s First Adventures.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
