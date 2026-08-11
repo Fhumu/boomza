@@ -50,6 +50,12 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--boomza-orange);
+  outline-offset: 4px;
+}
+
 ::selection {
   background: var(--boomza-yellow);
   color: var(--boomza-ink);
@@ -306,7 +312,9 @@ a {
   position: absolute;
   inset: 68px 10px 0 35px;
   border: 3px solid rgba(36, 49, 45, 0.08);
-  border-radius: 46% 54% 47% 53% / 42% 38% 62% 58%;
+  border-radius:
+    46% 54% 47% 53% /
+    42% 38% 62% 58%;
   box-shadow: 0 30px 80px rgba(36, 49, 45, 0.13);
   overflow: hidden;
   transform: rotate(1.5deg);
@@ -531,7 +539,9 @@ a {
   position: absolute;
   inset: 10%;
   border: 5px dashed rgba(255, 255, 255, 0.32);
-  border-radius: 48% 52% 40% 60% / 55% 36% 64% 45%;
+  border-radius:
+    48% 52% 40% 60% /
+    55% 36% 64% 45%;
 }
 
 .play-dot {
@@ -577,7 +587,9 @@ a {
   height: 190px;
   overflow: hidden;
   border: 5px solid rgba(255, 255, 255, 0.86);
-  border-radius: 42% 58% 48% 52% / 46% 45% 55% 54%;
+  border-radius:
+    42% 58% 48% 52% /
+    46% 45% 55% 54%;
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
   transform: rotate(5deg);
 }
@@ -862,6 +874,7 @@ a {
     flex-direction: column;
   }
 }
+
 /* =========================================================
    SHARED SITE NAVIGATION
    ========================================================= */
@@ -956,5 +969,22 @@ a {
 
   .mobile-menu-message strong {
     color: var(--boomza-ink);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
