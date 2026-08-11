@@ -417,9 +417,13 @@ export default function BoomzaColourGame() {
                 className="object-cover object-center"
               />
 
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#fffaf0] via-[#fffaf0]/88 via-[31%] to-transparent lg:via-[#fffaf0]/54 lg:via-[36%]" />
-
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/[0.05] via-transparent to-white/[0.05]" />
+              <div
+                className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[54%] sm:w-[48%] lg:w-[43%]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(255,250,240,0.96) 0%, rgba(255,250,240,0.88) 42%, rgba(255,250,240,0.52) 68%, rgba(255,250,240,0.16) 88%, rgba(255,250,240,0) 100%)",
+                }}
+              />
 
               <div className="relative z-10 min-h-[760px] sm:min-h-[820px] lg:min-h-[760px]">
                 <div className="grid min-h-[760px] sm:min-h-[820px] lg:min-h-[760px] lg:grid-cols-[0.43fr_0.57fr]">
@@ -613,14 +617,14 @@ export default function BoomzaColourGame() {
                                 ? "rgba(65,108,66,0.94)"
                                 : incorrect
                                   ? "rgba(242,139,60,0.94)"
-                                  : "rgba(255,250,232,0.22)",
+                                  : "rgba(255,250,232,0.12)",
 
                             boxShadow:
                               correct
                                 ? "0 0 0 8px rgba(65,108,66,0.18), 0 12px 35px rgba(36,49,45,0.28)"
                                 : incorrect
                                   ? "0 0 0 8px rgba(242,139,60,0.18), 0 12px 35px rgba(36,49,45,0.28)"
-                                  : "0 0 0 7px rgba(255,255,255,0.30), 0 10px 34px rgba(36,49,45,0.20)",
+                                  : "0 0 0 7px rgba(255,255,255,0.36), 0 10px 34px rgba(36,49,45,0.20)",
                           }}
                         >
                           <span
