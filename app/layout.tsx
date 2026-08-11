@@ -1,4 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import type {
+  Metadata,
+  Viewport,
+} from "next";
 import {
   Fredoka,
   Nunito,
@@ -27,7 +30,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "Boomza | Little Adventures. Big Imagination.",
+    default:
+      "Boomza | Little Adventures. Big Imagination.",
     template: "%s | Boomza",
   },
 
@@ -101,7 +105,8 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: siteUrl,
     siteName: "Boomza",
-    title: "Boomza | Little Adventures. Big Imagination.",
+    title:
+      "Boomza | Little Adventures. Big Imagination.",
     description:
       "Stories, colouring, play and little adventures made for big imaginations.",
     images: [
@@ -116,7 +121,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Boomza | Little Adventures. Big Imagination.",
+    title:
+      "Boomza | Little Adventures. Big Imagination.",
     description:
       "Stories, colouring, play and little adventures made for big imaginations.",
     images: [
