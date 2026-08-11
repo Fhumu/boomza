@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import {
+  useEffect,
+  useRef,
   useState,
 } from "react";
 
@@ -23,6 +25,12 @@ type Round = {
   success: string;
   hotspots: Hotspot[];
 };
+
+type GameStatus =
+  | "idle"
+  | "correct"
+  | "incorrect"
+  | "complete";
 
 const rounds: Round[] = [
   {
@@ -155,7 +163,6 @@ function Progress({
                 width: active
                   ? "58px"
                   : "20px",
-
                 background:
                   complete ||
                   active
@@ -199,6 +206,165 @@ function speakRound(
   );
 }
 
+function createAudioContext() {
+  if (
+    typeof window ===
+    "undefined"
+  ) {
+    return null;
+  }
+
+  const AudioContextClass =
+    window.AudioContext ??
+    (
+      window as typeof window & {
+        webkitAudioContext?: typeof AudioContext;
+      }
+    ).webkitAudioContext;
+
+  if (!AudioContextClass) {
+    return null;
+  }
+
+  return new AudioContextClass();
+}
+
+function playTone(
+  audioContext: AudioContext,
+  {
+    frequency,
+    start,
+    duration,
+    volume = 0.11,
+    type = "sine",
+  }: {
+    frequency: number;
+    start: number;
+    duration: number;
+    volume?: number;
+    type?: OscillatorType;
+  },
+) {
+  const oscillator =
+    audioContext.createOscillator();
+
+  const gain =
+    audioContext.createGain();
+
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(
+    frequency,
+    start,
+  );
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    start,
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    volume,
+    start + 0.025,
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    start + duration,
+  );
+
+  oscillator.connect(gain);
+  gain.connect(
+    audioContext.destination,
+  );
+
+  oscillator.start(start);
+  oscillator.stop(
+    start + duration + 0.03,
+  );
+}
+
+function playCorrectSound(
+  audioContext: AudioContext,
+) {
+  const now =
+    audioContext.currentTime;
+
+  playTone(
+    audioContext,
+    {
+      frequency: 523.25,
+      start: now,
+      duration: 0.18,
+      volume: 0.08,
+    },
+  );
+
+  playTone(
+    audioContext,
+    {
+      frequency: 659.25,
+      start: now + 0.11,
+      duration: 0.22,
+      volume: 0.1,
+    },
+  );
+}
+
+function playIncorrectSound(
+  audioContext: AudioContext,
+) {
+  const now =
+    audioContext.currentTime;
+
+  playTone(
+    audioContext,
+    {
+      frequency: 293.66,
+      start: now,
+      duration: 0.16,
+      volume: 0.05,
+      type: "triangle",
+    },
+  );
+}
+
+function playCompleteSound(
+  audioContext: AudioContext,
+) {
+  const now =
+    audioContext.currentTime;
+
+  playTone(
+    audioContext,
+    {
+      frequency: 523.25,
+      start: now,
+      duration: 0.2,
+      volume: 0.075,
+    },
+  );
+
+  playTone(
+    audioContext,
+    {
+      frequency: 659.25,
+      start: now + 0.13,
+      duration: 0.2,
+      volume: 0.085,
+    },
+  );
+
+  playTone(
+    audioContext,
+    {
+      frequency: 783.99,
+      start: now + 0.27,
+      duration: 0.32,
+      volume: 0.1,
+    },
+  );
+}
+
 export default function BoomzaColourGame() {
   const [
     roundIndex,
@@ -215,17 +381,91 @@ export default function BoomzaColourGame() {
   const [
     status,
     setStatus,
-  ] = useState<
-    | "idle"
-    | "correct"
-    | "incorrect"
-    | "complete"
-  >("idle");
+  ] = useState<GameStatus>(
+    "idle",
+  );
+
+  const [
+    celebrationVisible,
+    setCelebrationVisible,
+  ] = useState(false);
+
+  const audioContextRef =
+    useRef<AudioContext | null>(
+      null,
+    );
+
+  const celebrationTimerRef =
+    useRef<
+      ReturnType<
+        typeof setTimeout
+      > | null
+    >(null);
 
   const round =
     rounds[roundIndex];
 
-  const checkHotspot = (
+  useEffect(() => {
+    return () => {
+      if (
+        celebrationTimerRef.current
+      ) {
+        clearTimeout(
+          celebrationTimerRef.current,
+        );
+      }
+
+      audioContextRef.current?.close();
+    };
+  }, []);
+
+  const getAudioContext = async () => {
+    if (
+      !audioContextRef.current
+    ) {
+      audioContextRef.current =
+        createAudioContext();
+    }
+
+    const context =
+      audioContextRef.current;
+
+    if (!context) {
+      return null;
+    }
+
+    if (
+      context.state ===
+      "suspended"
+    ) {
+      await context.resume();
+    }
+
+    return context;
+  };
+
+  const showCelebration = () => {
+    if (
+      celebrationTimerRef.current
+    ) {
+      clearTimeout(
+        celebrationTimerRef.current,
+      );
+    }
+
+    setCelebrationVisible(
+      true,
+    );
+
+    celebrationTimerRef.current =
+      setTimeout(() => {
+        setCelebrationVisible(
+          false,
+        );
+      }, 900);
+  };
+
+  const checkHotspot = async (
     hotspotId: string,
   ) => {
     if (
@@ -238,6 +478,9 @@ export default function BoomzaColourGame() {
       hotspotId,
     );
 
+    const audioContext =
+      await getAudioContext();
+
     if (
       hotspotId ===
       round.correct
@@ -246,15 +489,29 @@ export default function BoomzaColourGame() {
         "correct",
       );
 
+      showCelebration();
+
+      if (audioContext) {
+        playCorrectSound(
+          audioContext,
+        );
+      }
+
       return;
     }
 
     setStatus(
       "incorrect",
     );
+
+    if (audioContext) {
+      playIncorrectSound(
+        audioContext,
+      );
+    }
   };
 
-  const nextRound = () => {
+  const nextRound = async () => {
     if (
       roundIndex ===
       rounds.length - 1
@@ -262,6 +519,15 @@ export default function BoomzaColourGame() {
       setStatus(
         "complete",
       );
+
+      const audioContext =
+        await getAudioContext();
+
+      if (audioContext) {
+        playCompleteSound(
+          audioContext,
+        );
+      }
 
       return;
     }
@@ -278,6 +544,10 @@ export default function BoomzaColourGame() {
     setStatus(
       "idle",
     );
+
+    setCelebrationVisible(
+      false,
+    );
   };
 
   const restart = () => {
@@ -289,6 +559,10 @@ export default function BoomzaColourGame() {
 
     setStatus(
       "idle",
+    );
+
+    setCelebrationVisible(
+      false,
     );
   };
 
@@ -330,64 +604,84 @@ export default function BoomzaColourGame() {
               />
             </div>
 
-            <div className="flex flex-col justify-center px-7 py-12 text-center sm:px-12 sm:py-16 lg:px-14 lg:text-left">
-              <div
-                className="text-6xl"
-                aria-hidden="true"
-              >
-                ⭐
+            <div className="relative flex flex-col justify-center overflow-hidden px-7 py-12 text-center sm:px-12 sm:py-16 lg:px-14 lg:text-left">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <span className="absolute left-[12%] top-[12%] animate-bounce text-3xl">
+                  ⭐
+                </span>
+
+                <span className="absolute right-[14%] top-[20%] animate-pulse text-2xl">
+                  ✨
+                </span>
+
+                <span className="absolute bottom-[20%] left-[18%] animate-pulse text-2xl">
+                  ✨
+                </span>
+
+                <span className="absolute bottom-[14%] right-[12%] animate-bounce text-3xl">
+                  ⭐
+                </span>
               </div>
 
-              <p
-                className="mt-5 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[0.12em]"
-                style={{
-                  color:
-                    "var(--boomza-orange)",
-                }}
-              >
-                Adventure complete
-              </p>
-
-              <h2
-                className="mt-4 font-[family-name:var(--font-display)] text-[clamp(40px,7vw,72px)] font-semibold leading-[0.95] tracking-[-0.055em]"
-                style={{
-                  color:
-                    "var(--boomza-ink)",
-                }}
-              >
-                You found Boomza&apos;s
-                colourful world!
-              </h2>
-
-              <p
-                className="mx-auto mt-5 max-w-xl text-lg leading-8 lg:mx-0"
-                style={{
-                  color:
-                    "var(--boomza-muted)",
-                }}
-              >
-                Brilliant exploring.
-                You followed every
-                clue and helped Boomza
-                spot all the colours.
-              </p>
-
-              <div className="mt-8">
-                <button
-                  type="button"
-                  onClick={
-                    restart
-                  }
-                  className="boomza-button cursor-pointer"
+              <div className="relative z-10">
+                <div
+                  className="text-6xl"
+                  aria-hidden="true"
                 >
-                  Play again
+                  ⭐
+                </div>
 
-                  <span
-                    aria-hidden="true"
+                <p
+                  className="mt-5 font-[family-name:var(--font-display)] text-sm font-bold uppercase tracking-[0.12em]"
+                  style={{
+                    color:
+                      "var(--boomza-orange)",
+                  }}
+                >
+                  Adventure complete
+                </p>
+
+                <h2
+                  className="mt-4 font-[family-name:var(--font-display)] text-[clamp(40px,7vw,72px)] font-semibold leading-[0.95] tracking-[-0.055em]"
+                  style={{
+                    color:
+                      "var(--boomza-ink)",
+                  }}
+                >
+                  You found Boomza&apos;s
+                  colourful world!
+                </h2>
+
+                <p
+                  className="mx-auto mt-5 max-w-xl text-lg leading-8 lg:mx-0"
+                  style={{
+                    color:
+                      "var(--boomza-muted)",
+                  }}
+                >
+                  Brilliant exploring.
+                  You followed every clue
+                  and helped Boomza spot
+                  all the colours.
+                </p>
+
+                <div className="mt-8">
+                  <button
+                    type="button"
+                    onClick={
+                      restart
+                    }
+                    className="boomza-button cursor-pointer"
                   >
-                    ↻
-                  </span>
-                </button>
+                    Play again
+
+                    <span
+                      aria-hidden="true"
+                    >
+                      ↻
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -591,6 +885,27 @@ export default function BoomzaColourGame() {
                           top: `${hotspot.y}%`,
                         }}
                       >
+                        {correct &&
+                          celebrationVisible && (
+                            <span className="pointer-events-none absolute inset-0">
+                              <span className="absolute -left-3 top-1/2 -translate-y-1/2 animate-bounce text-2xl">
+                                ⭐
+                              </span>
+
+                              <span className="absolute -right-3 top-1 animate-pulse text-xl">
+                                ✨
+                              </span>
+
+                              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 animate-bounce text-xl">
+                                ⭐
+                              </span>
+
+                              <span className="absolute left-1/2 top-0 -translate-x-1/2 animate-pulse text-xl">
+                                ✨
+                              </span>
+                            </span>
+                          )}
+
                         <span
                           className={[
                             "relative flex h-[72px] w-[72px] items-center justify-center rounded-full border-[4px] border-dashed transition-all duration-200",
@@ -611,14 +926,12 @@ export default function BoomzaColourGame() {
                           style={{
                             borderColor:
                               "#ffffff",
-
                             background:
                               correct
                                 ? "rgba(65,108,66,0.94)"
                                 : incorrect
                                   ? "rgba(242,139,60,0.94)"
                                   : "rgba(255,250,232,0.12)",
-
                             boxShadow:
                               correct
                                 ? "0 0 0 8px rgba(65,108,66,0.18), 0 12px 35px rgba(36,49,45,0.28)"
@@ -689,7 +1002,6 @@ export default function BoomzaColourGame() {
                           "incorrect"
                         ? "rgba(242,139,60,0.30)"
                         : "rgba(242,139,60,0.38)",
-
                   background:
                     status ===
                     "correct"
@@ -708,7 +1020,10 @@ export default function BoomzaColourGame() {
                     {status ===
                     "correct"
                       ? "⭐"
-                      : "💡"}
+                      : status ===
+                          "incorrect"
+                        ? "🌱"
+                        : "💡"}
                   </div>
 
                   <div>
@@ -733,9 +1048,8 @@ export default function BoomzaColourGame() {
                           }}
                         >
                           Which colourful
-                          object is hiding
-                          in Boomza&apos;s
-                          world?
+                          object is hiding in
+                          Boomza&apos;s world?
                         </p>
                       </>
                     )}
